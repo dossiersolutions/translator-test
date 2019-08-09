@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "a2ed7c32-bb4a-46a2-9436-62bb712ffb03",
+		"name": "Translator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "languages",
+			"item": [
+				{
+					"name": "get languages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/languages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 1 language",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/languages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"languages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post languages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"My lang2345\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/languages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"languages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "keys",
+			"item": [
+				{
+					"name": "get keys",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/keys",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"keys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "translations",
+			"item": [
+				{
+					"name": "get translations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/translations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"translations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
