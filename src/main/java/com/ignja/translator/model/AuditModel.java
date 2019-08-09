@@ -14,7 +14,9 @@ import java.util.Date;
     value = {"createdAt", "updatedAt"},
     allowGetters = true
 )
-public abstract class AuditModel implements Serializable {
+public abstract class AuditModel implements Serializable
+{
+
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "created_at", nullable = false, updatable = false)
   @CreatedDate
@@ -25,7 +27,8 @@ public abstract class AuditModel implements Serializable {
   @LastModifiedDate
   private Date updatedAt;
 
-  public Date getCreatedAt() {
+  public Date getCreatedAt()
+  {
     return createdAt;
   }
 
@@ -33,11 +36,13 @@ public abstract class AuditModel implements Serializable {
     this.createdAt = createdAt;
   }
 
-  public Date getUpdatedAt() {
+  public Date getUpdatedAt()
+  {
     return updatedAt;
   }
 
-  public void setUpdatedAt(Date updatedAt) {
+  public void setUpdatedAt(Date updatedAt)
+  {
     this.updatedAt = updatedAt;
   }
 }

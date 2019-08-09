@@ -3,7 +3,7 @@ create table languages
     id bigserial
         constraint languages_pkey
             primary key,
-    name name
+    name name unique not null
 );
 
 alter table languages owner to postgres;
@@ -13,7 +13,7 @@ create table keys
     id bigserial
         constraint keys_pkey
             primary key,
-    name name
+    name name not null
 );
 
 alter table keys owner to postgres;

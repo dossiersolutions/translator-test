@@ -9,20 +9,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "translations")
-public class TranslationModel extends AuditModel {
+public class TranslationModel extends AuditModel
+{
 
   @Id
   @GeneratedValue(generator = "translation_generator")
   @SequenceGenerator(
       name = "translation_generator",
-      sequenceName = "translation_sequence",
+      sequenceName = "translations_id_seq",
       initialValue = 1000
   )
   private Long id;
@@ -30,34 +28,54 @@ public class TranslationModel extends AuditModel {
   @Column(name = "value")
   private String value;
 
-  @Column(name = "key_id")
-  private String key_id;
-
-  @Column(name = "language_id")
-  private String language_id;
-
-  @Column(name = "version_id")
-  private String version_id;
-
-
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(targetEntity = KeyModel.class, fetch = FetchType.EAGER)
   @JoinColumn(name = "key_id", nullable = false)
-  @OnDelete(action = OnDeleteAction.CASCADE)
-  @JsonIgnore
-  public Long getId() {
+  @JsonManagedReference
+  private KeyModel key;
+
+  @ManyToOne(targetEntity = LanguageModel.class, fetch = FetchType.EAGER)
+  @JoinColumn(name = "language_id", nullable = false)
+  @JsonManagedReference
+  private LanguageModel language;
+
+  public Long getId()
+  {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(Long id)
+  {
     this.id = id;
   }
 
-  public String getValue() {
+  public String getValue()
+  {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(String value)
+  {
     this.value = value;
+  }
+
+  public KeyModel getKey()
+  {
+    return key;
+  }
+
+  public void setKey(KeyModel key)
+  {
+    this.key = key;
+  }
+
+  public LanguageModel getLanguage()
+  {
+    return language;
+  }
+
+  public void setLanguage(LanguageModel language)
+  {
+    this.language = language;
   }
 
 }
